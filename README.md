@@ -26,3 +26,24 @@ https://github.com/andyfmiller/LtiAdvantagePlatform
 This is the project that I want to be working from as it's .net Core (although 2.2 and compiling as 3.1 has too many errors to be a quick fix). The downloaded project did seem to require https://github.com/LtiLibrary/LtiAdvantage/tree/master/src to be downloaded and added to the project. I then had to remove the project dependencies and re-add them from the solution as they were hardcoded into a different location.
 
 The tool - https://github.com/andyfmiller/LtiAdvantageTool - is really where the magic lies. I don't understand what it is doing, although I can currently make it work on the LTI advantage platform, but not on Blackboard. I'm sure that the reason for this is that the instructions - https://andyfmiller.com/2018/12/28/launching-an-lti-1-3-resource-link-using-openid-connect-third-party-login/ - point you towards some generated public/private keys - https://lti-ri.imsglobal.org/keygen/index - that can be used in the app (and work), but Blackboard asks for a JWKS URL https://auth0.com/docs/tokens/concepts/jwks, which I haven't used before and I don't think I'm using the right keys. 
+
+---
+
+Found a tool to correctly turn a PEM into a JWKS - https://8gwifi.org/jwkconvertfunctions.jsp - however I still get the same errors
+
+```
+fail: AdvantageTool.Pages.OidcLoginModel[0]
+      Invalid target_link_uri [https://[snip].ngrok.io/Tool/443f3a95b5f4e41e].
+      
+      
+Error.
+An error occurred while processing your request.
+
+Request ID:
+    |96bf5dd9be18cf43b58b499f75e825bb.eefedffa_
+HTTP Status Code
+    400
+```
+
+The link seems to work in Advantage Platform and does appear to match the launch URL running on localhost (via ngrok) `Launch URL  
+https://localhost:44308/Tool/443f3a95b5f4e41e`
