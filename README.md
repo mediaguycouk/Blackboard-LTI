@@ -55,3 +55,9 @@ Looks like it's ngrok
 if (targetLinkUri.Host != Request.Host.Host) // [snip.ngrok.io] != [localhost]
   _logger.LogError($"Invalid target_link_uri [{TargetLinkUri}].");
 ```
+
+---
+
+Made OidcLogin have `if (targetLinkUri.Host != Request.Host.Host && !targetLinkUri.Host.EndsWith("ngrok.io"))`. That'll do for now and will need to be taken out.
+
+That gets me past the first step. I'm now into the second leg as the app is directing me back to Blackboard, but with a `Could not find configuration for client_id: 9b8676f5-e88d-405f-a63e-4f83fdfc9e9e` error.
