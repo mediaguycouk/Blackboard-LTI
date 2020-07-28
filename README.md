@@ -47,3 +47,11 @@ HTTP Status Code
 
 The link seems to work in Advantage Platform and does appear to match the launch URL running on localhost (via ngrok) `Launch URL  
 https://localhost:44308/Tool/443f3a95b5f4e41e`
+
+---
+
+Looks like it's ngrok 
+```
+if (targetLinkUri.Host != Request.Host.Host) // [snip.ngrok.io] != [localhost]
+  _logger.LogError($"Invalid target_link_uri [{TargetLinkUri}].");
+```
