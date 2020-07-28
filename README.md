@@ -61,3 +61,9 @@ if (targetLinkUri.Host != Request.Host.Host) // [snip.ngrok.io] != [localhost]
 Made OidcLogin have `if (targetLinkUri.Host != Request.Host.Host && !targetLinkUri.Host.EndsWith("ngrok.io"))`. That'll do for now and will need to be taken out.
 
 That gets me past the first step. I'm now into the second leg as the app is directing me back to Blackboard, but with a `Could not find configuration for client_id: 9b8676f5-e88d-405f-a63e-4f83fdfc9e9e` error.
+
+---
+
+Another step forward. The error above was not understanding which GUID needed to be in the client ID in the tool settings Client ID field. The ID is not the developer application key or application ID. The ID is from https://developer.blackboard.com/portal/applications and should match the Client ID that has been added to Blackboard > System Admin > Integrations > LTI Tool Integration > Register LTI 1.3/Advantage Tool.
+
+New error is `Invalid redirect_url: https://[snip].ngrok.io/Tool/443f3a95b5f4e41e`. Hopefully this one should be easier as it doesn't match the URL that the tool thinks it is on. I'm thinking it might be easier to tell visual studio to use the external hostname, but I'm not too sure how.
