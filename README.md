@@ -67,3 +67,10 @@ That gets me past the first step. I'm now into the second leg as the app is dire
 Another step forward. The error above was not understanding which GUID needed to be in the client ID in the tool settings Client ID field. The ID is not the developer application key or application ID. The ID is from https://developer.blackboard.com/portal/applications and should match the Client ID that has been added to Blackboard > System Admin > Integrations > LTI Tool Integration > Register LTI 1.3/Advantage Tool.
 
 New error is `Invalid redirect_url: https://[snip].ngrok.io/Tool/443f3a95b5f4e41e`. Hopefully this one should be easier as it doesn't match the URL that the tool thinks it is on. I'm thinking it might be easier to tell visual studio to use the external hostname, but I'm not too sure how.
+
+---
+
+Blackboard seems to suggest that the redirect URL needs to be on the same hostname `The Tool Provider URL must be located on one of the configured host names.`, however in testing the Target Link URI needs to be exactly the same as `Tool Redirect URLs` in the LTI 1.3 settings. The plural seems to suggest that this could be a list, and that list is on https://developer.blackboard.com/portal/applications/edit, but also the Blackboard page doesn't seem to refresh so it is presumably difficult to add new items to this list. Certainly the domain whitelists only updated once I deleted the LTI and re-added it.
+
+My LTI now loads, but with a message `No connection could be made because the target machine actively refused it`, which is within the try/catch of `// Using the JwtSecurityTokenHandler.ValidateToken method, validate four things:`. I guess that might still mean my JWT token isn't correct yet, but I'll go line by line through the debugger to find that out next.
+
