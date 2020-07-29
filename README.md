@@ -74,3 +74,12 @@ Blackboard seems to suggest that the redirect URL needs to be on the same hostna
 
 My LTI now loads, but with a message `No connection could be made because the target machine actively refused it`, which is within the try/catch of `// Using the JwtSecurityTokenHandler.ValidateToken method, validate four things:`. I guess that might still mean my JWT token isn't correct yet, but I'll go line by line through the debugger to find that out next.
 
+---
+
+Nope, I had two platforms registered, one was localhost:44308 and the other was [snip].ngrok.io. I hadn't updated Blackboard with the tool ID that referenced the ngrok address (and both localhost and ngrok.io were going to the same computer).
+
+I now have a working LTI tool!
+
+![alt text](https://github.com/mediaguycouk/Blackboard-LTI/blob/master/ltiss1.png "Resource link request details")
+
+Although that does say invalid jwt token, but I can't tell if that is specific to that gradebook section. There's always something.
