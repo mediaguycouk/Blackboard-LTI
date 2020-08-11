@@ -83,3 +83,11 @@ I now have a working LTI tool!
 ![alt text](https://github.com/mediaguycouk/Blackboard-LTI/blob/master/ltiss1.png "Resource link request details")
 
 Although that does say invalid jwt token, but I can't tell if that is specific to that gradebook section. There's always something.
+
+---
+
+I had been misunderstanding deep links. I couldn't understand why the deep link url didn't work if it wasn't exactly the same as the single deep link URL in the Tool Redirects URL. The thing I'd been missing was that when you say something is a deep link then there is only one URL, but when you actually place it in your course it shows you your own webpage so that you can store there where the deep link should go.
+
+---
+
+The other thing I stumbled across was the answer to my JWKS questions. When you create a new application in Blackboard you get a set of keys, ClientId|Secret|Application name. When you manage those keys you can hit the + and get new keys (once you have more than one you can delete them so that you can rotate keys regularly). What I personally missed was the "Generate new Private Key" button, which will generate a JWKS Public Keyset URL AND generate a Private Key that can be used to sign the web tokens. 
